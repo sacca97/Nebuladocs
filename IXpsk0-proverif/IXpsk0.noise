@@ -1,0 +1,5 @@
+IXpsk0:
+  -> psk, e, s
+  <- e, ee, se, s, es
+  ->
+  <-
