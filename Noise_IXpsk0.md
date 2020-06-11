@@ -1,5 +1,12 @@
 # Noise IXpsk0
 
+This section uses the following notation for keys:
+- Q is the pre-shared key
+- E<sub>i</sub><sup>pub</sup> is the initiator ephemeral public key
+- S<sub>r</sub><sup>priv</sup> is the responder static private key
+- T<sup>send</sup>, T<sup>recv</sup> are the session keys derived
+
+
 The Noise handshake starts with initiator (I) and responder (R) computing the hash function of the protocol name:
 
 h<sub>0</sub> = hash("Noise_IXpsk0_25519_ChaChaPoly_SHA256")\

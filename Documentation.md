@@ -16,11 +16,11 @@ The initiator index is a 32-bit integer randomly generated, the timestamp is uni
 As of now the last three elements and the static key are not encrypted as the psk is not used in Noise.
 
 The responder receive this message and execute the following actions:
-1. Check the header structure if it's valid, then calls the right handshake handler function based on the message counter. This function checks the remote index and if it's zero the Noise parameters for the responder are initialized. [Optionally before this step there are firewalls e/o other controls]
-1. Process everything according to the Noise protocol.
-1. Finally the certificate is verified.    
+1. Check whether the header structure is valid, then calls the right handshake handler function based on the message counter. This function checks the remote index and if it's zero the Noise parameters for the responder are initialized. [Optionally before this step there are firewalls e/o other controls such as remoteAllow]
+1. Process the packet according to the Noise protocol (see Noixe_IXpsk0).
+1. Verify the certificate.    
 
-Then if the connection wasn't aborted due to certificate verification failure the responder builds the second message:
+If the connection isn't aborted the responder builds the second message (note that if the initiator cannot be authenticated the resnpoder won't send packets back):
 
 ![image info](nebulasecondpacket.png)
 
